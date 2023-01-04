@@ -6,13 +6,20 @@ import adafruit_adxl34x
 i2c=busio.I2C(board.SCL, board.SDA)
 ac=adafruit_adxl34x.ADXL345(i2c)
 ac.enable_motion_detection(threshold=18)
-ac.enable_tap_detection(tap_count=3,threshold=20,duration=50,latency=20,window=255)
-while True:
-#	print("tap: ",ac.events['tap'])
-#	print("motion:",ac.events['motion'])
-#	print("acceleration: ",ac.acceleration)
-	if ac.events['tap']:
-     	print("Reading input for 3 sec!!..")
-		print("acceleration: %f %f %f "%ac.acceleration)
-	time.sleep(0.5)
+ac.enable_tap_detection(tap_count=2,threshold=20,duration=50,latency=20,window=255)
 
+if ac.events['tap']:
+    print("Reading input for 3 sec!!..")
+    x,y,z=ac.acceleration
+    for i in time.sleep(3):
+	    print(x,y,z)
+    	
+
+# while True:
+# #	print("tap: ",ac.events['tap'])
+# #	print("motion:",ac.events['motion'])
+# #	print("acceleration: ",ac.acceleration)
+# 	if ac.events['tap']:
+#      	print("Reading input for 3 sec!!..")
+# 		print("acceleration: %f %f %f ",ac.acceleration)
+# 	time.sleep(0.5)

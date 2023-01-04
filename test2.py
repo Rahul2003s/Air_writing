@@ -14,7 +14,7 @@ while True:
         t_end = time.time() + 3
         while time.time() < t_end:
             print(x,y,z)
-    print("Done")
+        print("Done")
     	
 
 # while True:

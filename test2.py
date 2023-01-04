@@ -16,10 +16,12 @@ if __name__ == '__main__':
     ac.enable_motion_detection(threshold=18)
     ac.enable_tap_detection(tap_count=2,threshold=200,duration=50,latency=20,window=255)
     
+    fields=['x-axis','y-axis','z-axis','number']
     csv_file=open('data.csv','w')
-    data_csv=csv.writer(csv_file)
-    header=['x-axis','y-axis','z-axis','number']
-    data_csv.writeheader(header)
+    # writer = csv.DictWriter(csv_file, fieldnames = fields)
+    data_csv=csv.writer(csv_file,fieldnames = fields)
+    
+    data_csv.writeheader()
     
     while True:
         if ac.events['tap']:

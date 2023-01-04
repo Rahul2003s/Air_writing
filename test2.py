@@ -28,14 +28,17 @@ if __name__ == '__main__':
     writer = csv.DictWriter(csv_file, fieldnames = fields) 
     writer.writeheader() 
      
-    
+    print("Training data set!!!...")
     while True:
-        if ac.events['tap']:
-            print("Reading input for 3 sec!!..")
-            t_end = time.time() + 2 
-            count=0
-            while time.time() < t_end: #records input for 2 seconds
-                print(ac.acceleration)
-                write_data(ac.acceleration,n,data_csv)
-                count += 1
-            print("Done",count)
+        n=int(input("Enter the number (0-9):"))
+        if n in range(0-10):
+            print("Double tap the pen to start reading..")
+            if ac.events['tap']:
+                print("Reading input for 3 sec!!..")
+                t_end = time.time() + 2 
+                count=0
+                while time.time() < t_end: #records input for 2 seconds
+                    print(ac.acceleration)
+                    write_data(ac.acceleration,n,data_csv)
+                    count += 1
+                print("Done",count)

@@ -6,10 +6,17 @@ import adafruit_adxl34x
 #(0.0784532, -0.1176798, 8.8652116) 
 
 
-def write_data(cordinates,number,data_csv):
+def write_data(cordinates,number,writer):
     x,y,z=cordinates
-    l=list(cordinates)
-    data_csv.writerows(l)
+    d=dict()
+    d['x-axis']=x
+    d['y-axis']=y
+    d['z-axis']=z 
+    d['number']=number
+    writer.writerow(mydict)
+    
+    
+    
 if __name__ == '__main__':    
     i2c=busio.I2C(board.SCL, board.SDA)
     ac=adafruit_adxl34x.ADXL345(i2c)
@@ -18,10 +25,9 @@ if __name__ == '__main__':
     
     fields=['x-axis','y-axis','z-axis','number']
     csv_file=open('data.csv','w')
-    data_csv = csv.DictWriter(csv_file, fieldnames = fields)
-    # data_csv=csv.writer(csv_file,fieldnames = fields)
-    
-    data_csv.writeheader()
+    writer = csv.DictWriter(csv_file, fieldnames = fields) 
+    writer.writeheader() 
+     
     
     while True:
         if ac.events['tap']:

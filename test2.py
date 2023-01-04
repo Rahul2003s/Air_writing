@@ -37,6 +37,6 @@ if __name__ == '__main__':
             count=0
             while time.time() < t_end: #records input for 2 seconds
                 print(ac.acceleration)
-                write_data(ac.acceleration,1,data_csv)
+                write_data(ac.acceleration,1,writer)
                 count += 1
             print("Done",count)

@@ -31,7 +31,7 @@ if __name__ == '__main__':
     print("Training data set!!!...")
     while True:
         n=int(input("Enter the number (0-9):"))
-        if n in range(0-10):
+        if n>=0 and n<10:
             print("Double tap the pen to start reading..")
             if ac.events['tap']:
                 print("Reading input for 3 sec!!..")

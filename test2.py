@@ -1,6 +1,7 @@
 import time
 import board
 import csv
+import busio
 import adafruit_adxl34x
 #(0.0784532, -0.1176798, 8.8652116) 
 

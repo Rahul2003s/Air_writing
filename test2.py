@@ -11,8 +11,8 @@ while True:
     if ac.events['tap']:
         print("Reading input for 3 sec!!..")
         x,y,z=ac.acceleration
-        while(time.sleep(3)!=None):
-            print("hi")
+        t_end = time.time() + 5
+        while time.time() < t_end:
             print(x,y,z)
 
     	

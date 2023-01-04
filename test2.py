@@ -18,8 +18,8 @@ if __name__ == '__main__':
     
     fields=['x-axis','y-axis','z-axis','number']
     csv_file=open('data.csv','w')
-    # writer = csv.DictWriter(csv_file, fieldnames = fields)
-    data_csv=csv.writer(csv_file,fieldnames = fields)
+    data_csv = csv.DictWriter(csv_file, fieldnames = fields)
+    # data_csv=csv.writer(csv_file,fieldnames = fields)
     
     data_csv.writeheader()
     

@@ -30,15 +30,13 @@ if __name__ == '__main__':
      
     print("Training data set!!!...")
     while True:
-        n=int(input("Enter the number (0-9):"))
-        if n>=0 and n<10:
-            print("Double tap the pen to start reading..")
-            if ac.events['tap']:
-                print("Reading input for 3 sec!!..")
-                t_end = time.time() + 2 
-                count=0
-                while time.time() < t_end: #records input for 2 seconds
-                    print(ac.acceleration)
-                    write_data(ac.acceleration,n,data_csv)
-                    count += 1
-                print("Done",count)
+        print("Double tap the pen to start reading..")
+        if ac.events['tap']:
+            print("Reading input for 3 sec!!..")
+            t_end = time.time() + 2 
+            count=0
+            while time.time() < t_end: #records input for 2 seconds
+                print(ac.acceleration)
+                write_data(ac.acceleration,1,data_csv)
+                count += 1
+            print("Done",count)

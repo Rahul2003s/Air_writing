@@ -13,7 +13,7 @@ def write_data(cordinates,number,writer):
     d['y-axis']=y
     d['z-axis']=z 
     d['number']=number
-    writer.writerow(mydict)
+    writer.writerow(d)
     
     
     
@@ -29,8 +29,8 @@ if __name__ == '__main__':
     writer.writeheader() 
      
     print("Training data set!!!...")
+    print("Double tap the pen to start reading..")
     while True:
-        print("Double tap the pen to start reading..")
         if ac.events['tap']:
             print("Reading input for 3 sec!!..")
             t_end = time.time() + 2 

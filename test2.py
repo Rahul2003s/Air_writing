@@ -14,7 +14,7 @@ if __name__ == '__main__':
     i2c=busio.I2C(board.SCL, board.SDA)
     ac=adafruit_adxl34x.ADXL345(i2c)
     ac.enable_motion_detection(threshold=18)
-    ac.enable_tap_detection(tap_count=2,threshold=20,duration=50,latency=20,window=255)
+    ac.enable_tap_detection(tap_count=2,threshold=200,duration=50,latency=20,window=255)
     
     csv_file=open('data.csv','w')
     data_csv=csv.writer(csv_file)

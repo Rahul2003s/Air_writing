@@ -33,7 +33,7 @@ if __name__ == '__main__':
     while True:
         if ac.events['tap']:
             print("Reading input for 3 sec!!..")
-            t_end = time.time() + 2 
+            t_end = time.time() + 1.5
             count=0
             while time.time() < t_end: #records input for 2 seconds
                 print(ac.acceleration)

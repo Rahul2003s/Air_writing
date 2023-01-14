@@ -36,7 +36,7 @@ if __name__ == '__main__':
     print("Training data set for 10 times!!!...")
     print("Double tap the pen to start reading..")
     num=0
-    while num==10:
+    while True:
         if ac.events['tap']:
             print("Reading input for 1.5 sec!!..")
             t_end = time.time() + 1.5
@@ -47,5 +47,3 @@ if __name__ == '__main__':
                 count += 1
             write_data(data_points)
             print("Done",count)
-            
-        num+=1

@@ -48,4 +48,4 @@ if __name__ == '__main__':
             write_data(data_points)
             print("Done",count)
             
-            num+=1
+        num+=1

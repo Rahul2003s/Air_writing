@@ -18,7 +18,7 @@ def read_data(cordinates,number,list):
     
 def write_data(l):
     for i in l:
-        print(i)
+        print("nexr",i+1)
     
 if __name__ == '__main__':    
     i2c=busio.I2C(board.SCL, board.SDA)

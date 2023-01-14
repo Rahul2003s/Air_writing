@@ -6,16 +6,19 @@ import adafruit_adxl34x
 #(0.0784532, -0.1176798, 8.8652116) 
 
 
-def write_data(cordinates,number,writer):
+def read_data(cordinates,number,list):
     x,y,z=cordinates
     d=dict()
     d['x-axis']=x
     d['y-axis']=y
     d['z-axis']=z 
     d['number']=number
-    writer.writerow(d)
+    list.append(d)
+    # writer.writerow(d)
     
-    
+def write_data(l):
+    s=set(l)
+    print(s)
     
 if __name__ == '__main__':    
     i2c=busio.I2C(board.SCL, board.SDA)
@@ -28,15 +31,21 @@ if __name__ == '__main__':
     writer = csv.DictWriter(csv_file, fieldnames = fields) 
     writer.writeheader() 
      
-    print("Training data set!!!...")
+    data_points = list()
+    n = int(input("Enter the number to train: "))
+    print("Training data set for 10 times!!!...")
     print("Double tap the pen to start reading..")
-    while True:
+    num=0
+    while num==10:
         if ac.events['tap']:
-            print("Reading input for 3 sec!!..")
+            print("Reading input for 1.5 sec!!..")
             t_end = time.time() + 1.5
             count=0
-            while time.time() < t_end: #records input for 2 seconds
-                print(ac.acceleration)
-                write_data(ac.acceleration,1,writer)
+            while time.time() < t_end: #records input for 1.5 seconds
+                # print(ac.acceleration)
+                read_data(ac.acceleration,n,data_points)
                 count += 1
+            write_data(data_points)
             print("Done",count)
+            
+            num+=1

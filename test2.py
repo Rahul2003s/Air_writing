@@ -17,7 +17,7 @@ def read_data(cordinates,number,list):
     # writer.writerow(d)
     
 def write_data(l):
-    s=set(l)
+    s=list({v['id']:v for v in l}.values())
     print(s)
     
 if __name__ == '__main__':    

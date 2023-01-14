@@ -27,6 +27,7 @@ def write_data(l):
             new_l.append(d)
     for i in new_l:
         print(i)
+    print("len",len(new_l))
 
     # print("LEN:",n)
     # for i in range(1,n):

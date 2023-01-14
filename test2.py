@@ -41,6 +41,12 @@ def write_data(l):
 def write_csv(l,writer):
     for i in l:
         writer.writerow(i)
+    d=dict()
+    d['x-axis']= ""
+    d['y-axis']= ""
+    d['z-axis']= ""
+    d['number']= ""
+    writer.writerow(d)
 
 if __name__ == '__main__':    
     i2c=busio.I2C(board.SCL, board.SDA)

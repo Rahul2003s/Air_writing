@@ -9,9 +9,9 @@ import adafruit_adxl34x
 def read_data(cordinates,number,list):
     x,y,z=cordinates
     d=dict()
-    d['x-axis']= "%0.5f" % x
-    d['y-axis']= "%0.5f" % y
-    d['z-axis']= "%0.5f" % z 
+    d['x-axis']= "%0.7f" % x
+    d['y-axis']= "%0.7f" % y
+    d['z-axis']= "%0.7f" % z 
     d['number']=number
     list.append(d)
     # writer.writerow(d)
@@ -19,7 +19,7 @@ def read_data(cordinates,number,list):
 def write_data(l):
     n=len(l)
     for i in range(n):
-        print(l[i])
+        print(l[i]['x-axis'])
     
 if __name__ == '__main__':    
     i2c=busio.I2C(board.SCL, board.SDA)

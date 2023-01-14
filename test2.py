@@ -25,7 +25,8 @@ def write_data(l):
         if t not in seen:
             seen.add(t)
             new_l.append(d)
-    print(new_l)
+    for i in new_l:
+        print(i)
 
     # print("LEN:",n)
     # for i in range(1,n):

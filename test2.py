@@ -20,7 +20,7 @@ def write_data(l):
     n=len(l)
     for i in range(1,n):
         if((l[i-1]['x-axis']==l[i]['x-axis']) and (l[i-1]['y-axis']==l[i]['y-axis']) and (l[i-1]['z-axis']==l[i]['z-axis'])):
-            print(l[i]['x-axis'],l[i]['y-axis'],l[i]['z-axis'])
+            print(i)
             del l[i]
     
 if __name__ == '__main__':    

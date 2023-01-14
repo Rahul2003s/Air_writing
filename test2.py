@@ -17,8 +17,8 @@ def read_data(cordinates,number,list):
     # writer.writerow(d)
     
 def write_data(l):
-    s=list({v['x-axis']:v for v in l}.values())
-    print(s)
+    for i in l:
+        print(i)
     
 if __name__ == '__main__':    
     i2c=busio.I2C(board.SCL, board.SDA)

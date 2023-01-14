@@ -40,7 +40,7 @@ def write_data(l):
 
 def write_csv(l,writer):
     for i in l:
-        writer.writerow(d)
+        writer.writerow(i)
 
 if __name__ == '__main__':    
     i2c=busio.I2C(board.SCL, board.SDA)

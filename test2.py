@@ -28,6 +28,7 @@ def write_data(l):
     for i in new_l:
         print(i)
     print("len",len(new_l))
+    return new_l
 
     # print("LEN:",n)
     # for i in range(1,n):
@@ -36,7 +37,11 @@ def write_data(l):
     #         print(i)
     #         print(l[i])
     #         del l[i]
-    
+
+def write_csv(l,writer):
+    for i in l:
+        writer.writerow(d)
+
 if __name__ == '__main__':    
     i2c=busio.I2C(board.SCL, board.SDA)
     ac=adafruit_adxl34x.ADXL345(i2c)
@@ -62,5 +67,8 @@ if __name__ == '__main__':
                 # print(ac.acceleration)
                 read_data(ac.acceleration,n,data_points)
                 count += 1
-            write_data(data_points)
+            data=write_data(data_points)
+            write_csv(data, writer)
+            data=[]
+            data_points=[]
             print("Done",count)

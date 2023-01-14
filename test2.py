@@ -18,13 +18,22 @@ def read_data(cordinates,number,list):
     
 def write_data(l):
     n=len(l)
-    print("LEN:",n)
-    for i in range(1,n):
-        # print(i)
-        if((l[i-1]['x-axis']==l[i]['x-axis']) and (l[i-1]['y-axis']==l[i]['y-axis']) and (l[i-1]['z-axis']==l[i]['z-axis'])):
-            print(i)
-            print(l[i])
-            del l[i]
+    seen = set()
+    new_l = [] 
+    for d in l:
+        t = tuple(d.items())
+        if t not in seen:
+            seen.add(t)
+            new_l.append(d)
+    print(new_l)
+
+    # print("LEN:",n)
+    # for i in range(1,n):
+    #     # print(i)
+    #     if((l[i-1]['x-axis']==l[i]['x-axis']) and (l[i-1]['y-axis']==l[i]['y-axis']) and (l[i-1]['z-axis']==l[i]['z-axis'])):
+    #         print(i)
+    #         print(l[i])
+    #         del l[i]
     
 if __name__ == '__main__':    
     i2c=busio.I2C(board.SCL, board.SDA)

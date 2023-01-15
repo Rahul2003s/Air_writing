@@ -6,15 +6,14 @@ import adafruit_adxl34x
 #(0.0784532, -0.1176798, 8.8652116) 
 
 
-def read_data(cordinates,number,list):
+def read_data(cordinates,number,li):
     x,y,z=cordinates
     d=dict()
     d['x-axis']= "%0.7f" % x
     d['y-axis']= "%0.7f" % y
     d['z-axis']= "%0.7f" % z 
     d['number']=number
-    list.append(d)
-    # writer.writerow(d)
+    li.append(d)
     
 def write_data(l):
     n=len(l)
@@ -30,22 +29,16 @@ def write_data(l):
     print("len",len(new_l))
     return new_l
 
-    # print("LEN:",n)
-    # for i in range(1,n):
-    #     # print(i)
-    #     if((l[i-1]['x-axis']==l[i]['x-axis']) and (l[i-1]['y-axis']==l[i]['y-axis']) and (l[i-1]['z-axis']==l[i]['z-axis'])):
-    #         print(i)
-    #         print(l[i])
-    #         del l[i]
 
 def write_csv(l,writer):
     for i in l:
         writer.writerow(i)
     d=dict()
-    d['x-axis']= ""
-    d['y-axis']= ""
-    d['z-axis']= ""
-    d['number']= ""
+    d['x-axis']= 0
+    d['y-axis']= 0
+    d['z-axis']= 0
+    d['number']= 0
+    writer.writerow(d)
     writer.writerow(d)
 
 if __name__ == '__main__':    
@@ -65,16 +58,13 @@ if __name__ == '__main__':
     print("Double tap the pen to start reading..")
     num=0
     while True:
+        print(ac.read())
         if ac.events['tap']:
-            print("Reading input for 1.5 sec!!..")
-            t_end = time.time() + 1.5
-            count=0
+            print("Reading input for 2 sec!!..")
+            t_end = time.time() + 2
             while time.time() < t_end: #records input for 1.5 seconds
-                # print(ac.acceleration)
                 read_data(ac.acceleration,n,data_points)
-                count += 1
             data=write_data(data_points)
             write_csv(data, writer)
             data=[]
             data_points=[]
-            print("Done",count)

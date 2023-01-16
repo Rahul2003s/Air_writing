@@ -58,7 +58,7 @@ if __name__ == '__main__':
     print("Double tap the pen to start reading..")
     num=0
     while True:
-        print(ac.read())
+        # print(ac.read())
         if ac.events['tap']:
             print("Reading input for 2 sec!!..")
             t_end = time.time() + 2

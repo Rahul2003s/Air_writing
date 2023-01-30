@@ -9,9 +9,12 @@ import adafruit_adxl34x
 def read_data(cordinates,number,li):
     x,y,z=cordinates
     d=dict()
-    d['x-axis']= x*1000
-    d['y-axis']= y*1000
-    d['z-axis']= z*1000 
+    xx="%0.7f" % x
+    yy="%0.7f" % y
+    zz="%0.7f" % z
+    d['x-axis']=xx*1000
+    d['y-axis']=yy*1000
+    d['z-axis']=zz*1000
     d['number']=number
     li.append(d)
     

@@ -3,6 +3,7 @@ import board
 import csv
 import busio
 import adafruit_adxl34x
+import math
 #(0.0784532, -0.1176798, 8.8652116) 
 
 
@@ -12,9 +13,9 @@ def read_data(cordinates,number,li):
     xx="%0.7f" % x
     yy="%0.7f" % y
     zz="%0.7f" % z
-    d['x-axis']=xx
-    d['y-axis']=yy
-    d['z-axis']=zz
+    d['x-axis']=math.trunc(xx*100)
+    d['y-axis']=math.trunc(yy*100)
+    d['z-axis']=math.trunc(zz*100)
     d['number']=number
     li.append(d)
     

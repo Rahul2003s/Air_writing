@@ -12,9 +12,9 @@ def read_data(cordinates,number,li):
     xx="%0.7f" % x
     yy="%0.7f" % y
     zz="%0.7f" % z
-    d['x-axis']=xx*1000
-    d['y-axis']=yy*1000
-    d['z-axis']=zz*1000
+    d['x-axis']=xx
+    d['y-axis']=yy
+    d['z-axis']=zz
     d['number']=number
     li.append(d)
     

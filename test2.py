@@ -41,7 +41,7 @@ if __name__ == '__main__':
     ac.enable_tap_detection(tap_count=2,threshold=200,duration=50,latency=20,window=255)
     
     fields=['x-axis','y-axis','z-axis','number']
-    csv_file=open('data.csv','w')
+    csv_file=open('data.csv','a')
     writer = csv.DictWriter(csv_file, fieldnames = fields) 
     # writer.writeheader() 
     data_points = list()

@@ -37,13 +37,13 @@ def write_data(l):
 def write_csv(l,writer):
     for i in l:
         writer.writerow(i)
-    d=dict()
-    d['x-axis']= 0
-    d['y-axis']= 0
-    d['z-axis']= 0
-    d['number']= 0
-    writer.writerow(d)
-    writer.writerow(d)
+    # d=dict()
+    # d['x-axis']= 0
+    # d['y-axis']= 0
+    # d['z-axis']= 0
+    # d['number']= 0    
+    # writer.writerow(d)
+    # writer.writerow(d)
 
 if __name__ == '__main__':    
     i2c=busio.I2C(board.SCL, board.SDA)
@@ -55,12 +55,12 @@ if __name__ == '__main__':
     csv_file=open('data.csv','w')
     writer = csv.DictWriter(csv_file, fieldnames = fields) 
     # writer.writeheader() 
-     
     data_points = list()
     n = int(input("Enter the number to train: "))
     print("Training data set for 10 times!!!...")
     print("Double tap the pen to start reading..")
     num=0
+    c=0
     while True:
         # print(ac.read())
         if ac.events['tap']:
@@ -69,6 +69,9 @@ if __name__ == '__main__':
             while time.time() < t_end: #records input for 1.5 seconds
                 read_data(ac.acceleration,n,data_points)
             data=write_data(data_points)
+            c=c+1
             write_csv(data, writer)
             data=[]
             data_points=[]
+            if(c>10):
+                break

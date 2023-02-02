@@ -71,7 +71,5 @@ if __name__ == '__main__':
             data=write_data(data_points)
             c=c+1
             write_csv(data, writer)
-            data=[]
-            data_points=[]
             if(c>10):
                 break

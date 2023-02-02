@@ -28,22 +28,11 @@ def write_data(l):
         if t not in seen:
             seen.add(t)
             new_l.append(d)
-    for i in new_l:
-        print(i)
+    
     print("len",len(new_l))
     return new_l
 
 
-def write_csv(l,writer):
-    for i in l:
-        writer.writerow(i)
-    # d=dict()
-    # d['x-axis']= 0
-    # d['y-axis']= 0
-    # d['z-axis']= 0
-    # d['number']= 0    
-    # writer.writerow(d)
-    # writer.writerow(d)
 
 if __name__ == '__main__':    
     i2c=busio.I2C(board.SCL, board.SDA)
@@ -70,6 +59,8 @@ if __name__ == '__main__':
                 read_data(ac.acceleration,n,data_points)
             data=write_data(data_points)
             c=c+1
-            write_csv(data, writer)
+            # write_csv(data, writer)
+            for i in data:
+                writer.writerow(i)
             if(c>10):
                 break

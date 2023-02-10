@@ -64,3 +64,4 @@ if __name__ == '__main__':
                 writer.writerow(i)
             if(c>100):
                 break
+            print("count",c)

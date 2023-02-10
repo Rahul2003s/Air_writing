@@ -18,7 +18,7 @@ def read_data(cordinates,number,li):
     d['z-axis']=math.trunc(float(zz)*100)
     d['number']=number
     li.append(d)
-    
+
 def write_data(l):
     n=len(l)
     seen = set()
@@ -62,5 +62,5 @@ if __name__ == '__main__':
             # write_csv(data, writer)
             for i in data:
                 writer.writerow(i)
-            if(c>10):
+            if(c>100):
                 break

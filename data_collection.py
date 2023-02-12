@@ -50,7 +50,7 @@ if __name__ == '__main__':
     fields=['x-axis','y-axis','z-axis','number']
     f='./source/'+str(a)+'.csv'
     print(f)
-    csv_file=open(f,'a')
+    csv_file=open(f,'a+')
     writer = csv.DictWriter(csv_file, fieldnames = fields) 
     while True:
         if ac.events['tap']:

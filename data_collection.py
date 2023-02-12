@@ -46,15 +46,13 @@ if __name__ == '__main__':
     n = int(input("Enter the number to train: "))
     print("Training data set for 10 times!!!...")
     print("Double tap the pen to start reading..")
-    num=0
     c=0
     fields=['x-axis','y-axis','z-axis','number']
     csv_file=open('./source/'+str(a)+'.csv','a')
     writer = csv.DictWriter(csv_file, fieldnames = fields) 
     while True:
-        # print(ac.read())
         if ac.events['tap']:
-            print("Reading input for 2 sec!!..")
+            print("Reading input for 2 sec!!..") 
             t_end = time.time() + 2
             while time.time() < t_end: #records input for 1.5 seconds
                 read_data(ac.acceleration,n,data_points)
@@ -63,6 +61,7 @@ if __name__ == '__main__':
             # write_csv(data, writer)
             for i in data:
                 writer.writerow(i)
+            data=[]
             if(c>10):
                 break
             print("count",c)

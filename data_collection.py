@@ -48,7 +48,9 @@ if __name__ == '__main__':
     print("Double tap the pen to start reading..")
     c=0
     fields=['x-axis','y-axis','z-axis','number']
-    csv_file=open('./source/'+str(a)+'.csv','a')
+    f='./source/'+str(a)+'.csv'
+    print(f)
+    csv_file=open(f,'a')
     writer = csv.DictWriter(csv_file, fieldnames = fields) 
     while True:
         if ac.events['tap']:

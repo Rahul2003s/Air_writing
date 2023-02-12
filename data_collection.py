@@ -40,9 +40,7 @@ if __name__ == '__main__':
     ac.enable_motion_detection(threshold=18)
     ac.enable_tap_detection(tap_count=2,threshold=200,duration=50,latency=20,window=255)
     
-    fields=['x-axis','y-axis','z-axis','number']
-    csv_file=open('data.csv','a')
-    writer = csv.DictWriter(csv_file, fieldnames = fields) 
+   
     # writer.writeheader() 
     data_points = list()
     n = int(input("Enter the number to train: "))
@@ -50,6 +48,9 @@ if __name__ == '__main__':
     print("Double tap the pen to start reading..")
     num=0
     c=0
+    fields=['x-axis','y-axis','z-axis','number']
+    csv_file=open('./source/'+str(a)+'.csv','a')
+    writer = csv.DictWriter(csv_file, fieldnames = fields) 
     while True:
         # print(ac.read())
         if ac.events['tap']:
@@ -62,6 +63,6 @@ if __name__ == '__main__':
             # write_csv(data, writer)
             for i in data:
                 writer.writerow(i)
-            if(c>100):
+            if(c>10):
                 break
             print("count",c)

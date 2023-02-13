@@ -6,13 +6,12 @@ import adafruit_adxl34x
 import math
 #(0.0784532, -0.1176798, 8.8652116) 
 
-
 def read_data(cordinates,number,li):
     x,y,z=cordinates
     d=dict()
-    xx="%0.2f" % x
-    yy="%0.2f" % y
-    zz="%0.2f" % z
+    xx="%0.7f" % x
+    yy="%0.7f" % y
+    zz="%0.7f" % z
     # math.trunc(float(xx)*100)
     d['x-axis']=float(xx)
     d['y-axis']=float(yy)

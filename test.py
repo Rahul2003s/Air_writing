@@ -25,7 +25,7 @@ def get_frames(df,frame_size,hop_size):
     
     return frames ,lables
 
-model=load_model('model.h5')
+model=load_model('fmodel.h5')
 l=['test.csv']
 for file in l:
     df=pd.read_csv(file)

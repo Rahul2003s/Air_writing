@@ -72,7 +72,7 @@ if __name__ == '__main__':
             print("Reading input for 2 sec!!..") 
             t_end = time.time() + 2
             while time.time() < t_end: #records input for 1.5 seconds
-                read_data(ac.acceleration,n,data_points)
+                read_data(ac.acceleration,1,data_points)
             data=write_data(data_points)
             c=c+1
             # write_csv(data, writer)

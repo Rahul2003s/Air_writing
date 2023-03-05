@@ -3,7 +3,6 @@ import numpy as np
 from keras.models import load_model
 import scipy.stats as stats
 import time
-import board
 import csv
 import busio
 import adafruit_adxl34x
@@ -57,7 +56,7 @@ def write_data(l):
     return new_l
 if __name__ == '__main__':   
     
-    i2c=busio.I2C(board.SCL, board.SDA)
+    i2c=busio.I2C(3, 2)# use GPIO3 (SCL) and GPIO2 (SDA)
     ac=adafruit_adxl34x.ADXL345(i2c)
     ac.enable_motion_detection(threshold=18)
     ac.enable_tap_detection(tap_count=2,threshold=200,duration=50,latency=20,window=255)

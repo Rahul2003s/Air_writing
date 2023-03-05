@@ -1,6 +1,7 @@
 import pandas as pd
 import numpy as np
 from keras.models import load_model
+from tensorflow.keras.optimizers import Adam
 import scipy.stats as stats
 import time
 import csv

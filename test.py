@@ -81,7 +81,10 @@ if __name__ == '__main__':
             data=[]
             if(c>=1):
                 break
-    model=load_model('fmodel.h5')
+    model=load_model('fmodel.h5',compile=False)
+    model.compile(optimizer=Adam(learning_rate = 0.0005), loss = 'sparse_categorical_crossentropy', metrics = ['accuracy'])
+    
+    
     df=pd.read_csv('test.csv')
     df.to_csv('test.csv',mode='w',header=None,index=False)
 

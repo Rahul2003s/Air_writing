@@ -2,6 +2,7 @@ import pandas as pd
 import numpy as np
 from keras.models import load_model
 from tensorflow.keras.optimizers import Adam
+from tensorflow.keras import Sequential
 import scipy.stats as stats
 import time
 import csv

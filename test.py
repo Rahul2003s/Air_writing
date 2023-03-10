@@ -64,7 +64,7 @@ if __name__ == '__main__':
     X_x,Y_y=get_frames(df,frame_size,hop_size)
 
     s=list(X_x.shape)
-    X_X=X_x.reshape(X_x[0],X_x[1],X_x[2],1)
+    X_X=X_x.reshape(s[0],s[1],s[2],1)
 
     p = model.predict(X_x[0])
     a = max((p.max(axis=0)))

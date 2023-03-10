@@ -58,7 +58,7 @@ if __name__ == '__main__':
             if(c>=1):
                 break
     model=load_model('fmodel.h5',compile=False)
-    model.compile(optimizer=Adam(learning_rate = 0.0005), loss = 'sparse_categorical_crossentropy', metrics = ['accuracy'])
+    model.compile(optimizer=Adam(learning_rate = 0.0005), loss = 'sparse_categorical_crossentropy', metrics = ['accuracy'],run_eagerly=True)
     
     
     X_x,Y_y=get_frames(df,frame_size,hop_size)

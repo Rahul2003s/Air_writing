@@ -39,11 +39,8 @@ if __name__ == '__main__':
     
     c=0
     df=pd.DataFrame(columns=['x-axis','y-axis','z-axis','number'])
-    data_points = list()
     print("Double tap the pen to start reading..")
-    fields = ['x-axis','y-axis','z-axis','number']
-    csv_file = open('test.csv','w')
-    writer = csv.DictWriter(csv_file, fieldnames = fields) 
+    
     while True:
         if ac.events['tap']:
             print("Reading input for 2 sec!!..") 

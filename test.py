@@ -66,7 +66,7 @@ if __name__ == '__main__':
     s=list(X_x.shape)
     X_X=X_x.reshape(s[0],s[1],s[2],1)
     print(X_x.shape)
-    p = model.predict(X_x[0])
+    p = model.predict(X_x)
     a = max((p.max(axis=0)))
     print("MAX",a)
     print("Predicted values\n",p)

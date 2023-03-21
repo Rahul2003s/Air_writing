@@ -41,7 +41,6 @@ if __name__ == '__main__':
     c=0
     df=pd.DataFrame(columns=['x-axis','y-axis','z-axis','number'])
     print("Double tap the pen to start reading..")
-    
     while True:
         if ac.events['tap']:
             print("Reading input for 2 sec!!..") 
@@ -59,6 +58,7 @@ if __name__ == '__main__':
     model.compile(optimizer=Adam(learning_rate = 0.0005), loss = 'sparse_categorical_crossentropy', metrics = ['accuracy'],run_eagerly=True)
     
     
+    df["number"] = df["number"].astype(str).astype(int)
     X_x,Y_y=get_frames(df,frame_size,hop_size)
     print(X_x.shape)
     s=list(X_x.shape)

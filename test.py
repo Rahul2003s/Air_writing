@@ -59,7 +59,9 @@ if __name__ == '__main__':
     model.compile(optimizer=Adam(learning_rate = 0.0005), loss = 'sparse_categorical_crossentropy', metrics = ['accuracy'],run_eagerly=True)
     print("SSS:")
     [print("\nas",i.shape, i.dtype) for i in model.inputs]
+    print("SSS:")
     [print(o.shape, o.dtype) for o in model.outputs]
+    print("SSS:")
     [print(l.name, l.input_shape, l.dtype) for l in model.layers]
     print("\n")
     df["number"] = df["number"].astype(str).astype(int)

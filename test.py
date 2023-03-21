@@ -64,7 +64,8 @@ if __name__ == '__main__':
     print("SSS:")
     [print(l.name, l.input_shape, l.dtype) for l in model.layers]
     print("\n")
-    df["number"] = df["number"].astype(str).astype(int)
+    df["number"] = df["number"].astype(str).astype(float)
+    # df['column_name'] = df['column_name'].astype(float)
     X_x,Y_y=get_frames(df,frame_size,hop_size)
     print(X_x.shape)
     s=list(X_x.shape)

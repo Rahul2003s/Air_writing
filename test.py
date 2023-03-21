@@ -66,7 +66,7 @@ if __name__ == '__main__':
     print("\n")
     df["number"] = df["number"].astype(str).astype(int)
     X_x,Y_y=get_frames(df,frame_size,hop_size)
-    print(X_x.shape)
+    print(X_x.shape,X_x.dtype)
     s=list(X_x.shape)
     X_X=X_x.reshape(s[0],s[1],s[2],1)
     print(X_x.shape)

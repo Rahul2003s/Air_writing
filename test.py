@@ -69,7 +69,7 @@ if __name__ == '__main__':
     print(X_x.shape,X_x.dtype)
     s=list(X_x.shape)
     X_X=X_x.reshape(s[0],s[1],s[2],1)
-    print("reshape: ",X_x.shape)
+    print("reshape: ",X_X.shape)
     p = model.predict(X_x)
     a = max((p.max(axis=0)))
     print("MAX",a)

@@ -59,7 +59,9 @@ if __name__ == '__main__':
     model.compile(optimizer=Adam(learning_rate = 0.0005), loss = 'sparse_categorical_crossentropy', metrics = ['accuracy'],run_eagerly=True)
     print("SSS:")
     [print("\nas",i.shape, i.dtype) for i in model.inputs]
-    
+    [print(o.shape, o.dtype) for o in model.outputs]
+    [print(l.name, l.input_shape, l.dtype) for l in model.layers]
+    print("\n")
     df["number"] = df["number"].astype(str).astype(int)
     X_x,Y_y=get_frames(df,frame_size,hop_size)
     print(X_x.shape)

@@ -56,7 +56,8 @@ if __name__ == '__main__':
                 break
     model=load_model('fmodel.h5',compile=False)
     model.compile(optimizer=Adam(learning_rate = 0.0005), loss = 'sparse_categorical_crossentropy', metrics = ['accuracy'],run_eagerly=True)
-    
+    print("SSS:")
+    [print(i.shape, i.dtype) for i in model.inputs]
     
     df["number"] = df["number"].astype(str).astype(int)
     X_x,Y_y=get_frames(df,frame_size,hop_size)

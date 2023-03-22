@@ -55,26 +55,20 @@ if __name__ == '__main__':
             if(c>=1):
                 break
     print("AHGFDSA")
-    model=load_model('fmodel.h5',compile=False)
+    model=load_model('new.h5',compile=False)
     model.compile(optimizer=Adam(learning_rate = 0.0005), loss = 'sparse_categorical_crossentropy', metrics = ['accuracy'],run_eagerly=True)
-    [print("\nas",i.shape, i.dtype) for i in model.inputs]
-    # print("SSS:")
-    # [print(o.shape, o.dtype) for o in model.outputs]
-    # print("SSS:")
-    # [print(l.name, l.input_shape, l.dtype) for l in model.layers]
-    # print("\n")
+    
     df = df.astype(float)
-    # df['column_name'] = df['column_name'].astype(float)
+    
     X_x,Y_y=get_frames(df,frame_size,hop_size)
-    print(X_x.shape)
     s=list(X_x.shape)
     X_X=X_x.reshape(s[0],s[1],s[2],1)
-    print("reshape: ",X_X.shape,X_X[0].dtype,X_X[0].shape)
+    
     p = model.predict(X_X)
     a = max((p.max(axis=0)))
     print("MAX",a)
     print("Predicted values\n",p)
     s=np.where(p==a)#index of the max 
-    #print(X_test[:1])
+    
     l=list(s)
     print("Predected number is: ",int(l[1]))

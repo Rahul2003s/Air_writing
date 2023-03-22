@@ -54,7 +54,7 @@ if __name__ == '__main__':
             c=c+1
             if(c>=1):
                 break
-    print("AHGFDSA")
+
     model=load_model('new.h5',compile=False)
     model.compile(optimizer=Adam(learning_rate = 0.0005), loss = 'sparse_categorical_crossentropy', metrics = ['accuracy'],run_eagerly=True)
     

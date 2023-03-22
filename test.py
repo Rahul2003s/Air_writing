@@ -57,14 +57,13 @@ if __name__ == '__main__':
     print("AHGFDSA")
     model=load_model('fmodel.h5',compile=False)
     model.compile(optimizer=Adam(learning_rate = 0.0005), loss = 'sparse_categorical_crossentropy', metrics = ['accuracy'],run_eagerly=True)
-    print("SSS:")
     [print("\nas",i.shape, i.dtype) for i in model.inputs]
-    print("SSS:")
-    [print(o.shape, o.dtype) for o in model.outputs]
-    print("SSS:")
-    [print(l.name, l.input_shape, l.dtype) for l in model.layers]
-    print("\n")
-    df["number"] = df["number"].astype(str).astype(float)
+    # print("SSS:")
+    # [print(o.shape, o.dtype) for o in model.outputs]
+    # print("SSS:")
+    # [print(l.name, l.input_shape, l.dtype) for l in model.layers]
+    # print("\n")
+    df = df.astype(float)
     # df['column_name'] = df['column_name'].astype(float)
     X_x,Y_y=get_frames(df,frame_size,hop_size)
     print(X_x.shape)

@@ -58,13 +58,19 @@ if __name__ == '__main__':
             t_end = time.time() + 2
             while time.time() < t_end: #records input for 1.5 seconds
                 read_data(ac.acceleration,n,data_points)
-            data=write_data(data_points)
-            c=c+1
-            # write_csv(data, writer)
-            for i in data:
-                writer.writerow(i)
-            data=[]
-            if(c>10):
+            p=input("Add to dataset ['y'/'n'/'q']: ")
+            if p=="y":
+                data=write_data(data_points)
+                c=c+1
+                # write_csv(data, writer)
+                for i in data:
+                    writer.writerow(i)
+                data=[]
+            elif p=="q":
+                break
+            elif p=="n":
+                c=c
+            if(c>50):
                 break
             print("count",c)
 

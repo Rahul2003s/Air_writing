@@ -43,6 +43,7 @@ if __name__ == '__main__':
         if ac.events['tap']:
             print("Reading input for 2 sec!!..") 
             t_end = time.time() + 2
+            c=c+1
             while time.time() < t_end: #records input for 1.5 seconds
                 read_data(ac.acceleration,data_points)
             if(c>1):

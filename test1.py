@@ -1,5 +1,6 @@
 import time
 # import board
+import pandas as pd
 import csv
 import busio
 import adafruit_adxl34x

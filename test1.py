@@ -47,7 +47,7 @@ if __name__ == '__main__':
             t_end = time.time() + 2
             c=c+1
             while time.time() < t_end: #records input for 1.5 seconds
-                read_data(ac.acceleration,n,data_points)
+                read_data(ac.acceleration,2,data_points)
             if(c>1):
                 break
     print(data_points)

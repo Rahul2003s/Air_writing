@@ -71,7 +71,7 @@ if __name__ == '__main__':
             elif p=="n":
                 c=c
             data=[]
-            if(c>50):
+            if(c>10):
                 break
             print("count",c)
 

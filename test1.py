@@ -48,8 +48,10 @@ if __name__ == '__main__':
             c=c+1
             while time.time() < t_end: #records input for 1.5 seconds
                 read_data(ac.acceleration,2,data_points)
+            
+            data=write_data(data_points)
             if(c==1):
                 break
-    print(data_points)
-    df=pd.DataFrame(data_points)
+    print(data)
+    df=pd.DataFrame(data)
     df.to_csv('test.csv',mode='w',header=None,index=False)

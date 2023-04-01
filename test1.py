@@ -50,5 +50,5 @@ if __name__ == '__main__':
             if(c>1):
                 break
     print(data_points)
-    df=pd.Dataframe(data_points)
+    df=pd.DataFrame(data_points)
     df.to_csv('test.csv',mode='a',header=None,index=False)

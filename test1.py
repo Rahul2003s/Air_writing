@@ -52,4 +52,4 @@ if __name__ == '__main__':
                 break
     print(data_points)
     df=pd.DataFrame(data_points)
-    df.to_csv('test.csv',mode='a',header=None,index=False)
+    df.to_csv('test.csv',mode='w',header=None,index=False)

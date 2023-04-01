@@ -37,6 +37,7 @@ if __name__ == '__main__':
     i2c=busio.I2C(3, 2)# use GPIO3 (SCL) and GPIO2 (SDA)
     ac=adafruit_adxl34x.ADXL345(i2c)
     ac.enable_motion_detection(threshold=18)
+    ac.set_range(adafruit_adxl34x.Range.RANGE_8_G)
     ac.enable_tap_detection(tap_count=2,threshold=200,duration=50,latency=20,window=255)
     c=0
     

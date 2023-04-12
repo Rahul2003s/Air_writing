@@ -59,7 +59,7 @@ if __name__ == '__main__':
             if(c >= 1):
                 break
 
-    model = load_model('fmodel.h5', compile=False)
+    model = load_model('tuned.h5', compile=False)
     model.compile(optimizer=Adam(learning_rate=0.0005),
                   loss='sparse_categorical_crossentropy', metrics=['accuracy'], run_eagerly=True)
 

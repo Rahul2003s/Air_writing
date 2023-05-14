@@ -1,90 +1,62 @@
-# Air_writing
+# Deep Learning Based AirWriting Digit Recognition Using Accelerometer
+
+This project is aimed at recognizing digits that are air-written using accelerometer data and a deep learning-based model. The project uses the I2C communication protocol to gather data from an accelerometer (ADXL345), preprocesses it, and feeds it to a deep learning sequential model for training. The trained model is then used to recognize digits drawn in the air in real-time on a Raspberry Pi.
 
 
-## Installation
 
-1. update and upgrade raspberrypi
+## Installation and Setup
+
+1. Clone the project repository onto your local machine using the following command:
+
 ```bash
-  sudo apt-get update && apt-get upgrade -y
-  
+git clone https://github.com/Rahul2003s/Air_writing.git
 ```
-2. install 
+2. Install the necessary dependencies for the project using the following command:
+
 ```bash
+sudo apt-get update
+sudo apt-get install python3-dev python3-pip python3-smbus i2c-tools -y
 ```
-3. 
+
+3. Enable I2C communication on the Raspberry Pi using the following commands:
+
 ```bash
-
+sudo raspi-config
 ```
-4. 
+
+Navigate to **'Interface Options > I2C'** and select **'Yes'**. Then, reboot the Raspberry Pi using the following command:
+
 ```bash
-   
+sudo reboot
 ```
-5. 
+
+4. Check that the ADXL345 accelerometer is working correctly using the following command:
 ```bash
-    
+sudo i2cdetect -y 1
 ```
-6. Installing python pakages
-```
-    sudo raspi-config
-    raspi-config > Interface Options > I2C > Yes
-    sudo reboot
-    sudo apt-get install python3-dev python3-pip python3-smbus i2c-tools -y
-    Check the ADXL345 working :  “53“
-    sudo i2cdetect -y 1
-    sudo pip3 install adafruit-circuitpython-ADXL34x
+The output should show "53" in the grid.
+
+5. Install the Adafruit CircuitPython ADXL34x library using the following command:
+```bash
+sudo pip3 install adafruit-circuitpython-ADXL34x
 ```
 
+6. Install TensorFlow on the Raspberry Pi by following the steps outlined in this [blog post](https://medium.com/@rahulsri073/installing-tensorflow-on-raspberry-pi-1b2c8d1ee33c).
+7. Connect the ADXL345 accelerometer to the Raspberry Pi using the I2C communication protocol.
+8. Run the data collection and preprocessing script to capture the data required for training the deep learning model. The script generates 2D frames or arrays of the accelerometer data, corresponding to the digits drawn in the air.
+9. Train the deep learning sequential model using the generated data. The trained model is saved in a .h5 file, which is later used for real-time testing.
+10. Load the trained model onto the Raspberry Pi for real-time testing of the digit recognition system.
 
 
-    sudo apt update
-    sudo apt full-upgrade
-Check python version: python -V
-Check available .whl's here https://github.com/PINTO0309/Tensorfl...
-Be sure to match your python version and architecture
+## Usage
+To use the digit recognition system, follow the steps below:
 
-**Use pyenv if you need a different python version - LINK TO PYENV TUTORIAL:   
+1. Run the real-time testing script on the Raspberry Pi.
 
- • Install Multiple ...   
+2. Use your hand to draw a digit in the air. Ensure that the accelerometer is held firmly in your hand, and that the drawing is clear and distinct.
 
-2:45   2. Make your project directory:
-cd Desktop
-mkdir project
-cd project
+3. The digit recognition system will then recognize the digit and display the result on the screen.
 
-3:00   3. Make a virtual environment:
-python3 -m pip install virtualenv
-python3 -m virtualenv env
-source env/bin/activate
+## Contributing
+If you find any bugs or issues with the project, feel free to submit a pull request or create an issue on the project repository. We welcome all contributions to the project.
 
-3:34   4. Run the commands from https://github.com/PINTO0309/Tensorfl...
-sudo apt-get install -y libhdf5-dev libc-ares-dev libeigen3-dev gcc gfortran libgfortran5 libatlas3-base libatlas-base-dev libopenblas-dev libopenblas-base libblas-dev liblapack-dev cython3 libatlas-base-dev openmpi-bin libopenmpi-dev python3-dev
-pip install -U wheel mock six
-
-3:58   5. Select the .whl from https://github.com/PINTO0309/Tensorfl...
-Select "view raw" then copy the URL
-Run:
-wget [Raw file URL]
-sudo chmod +x [Raw file URL]
-./[Tensorflow file]
-sudo pip uninstall tensorflow
-pip uninstall tensorflow
-pip install  tensorflow-[Your version here].whl
-
-6:00   6. Restart the shell
-exec $SHELL
-
-6:11   7. Reactivate your virtual environment:
-cd Desktop
-cd project
-source env/bin/activate
-
-6:24   8. Test:
-python 
-import tensorflow
-tensorflow.__version__
-quit()
-
-6:55   9. (optional) If there's an hdf5 warning run this command:
-This is from: https://docs.h5py.org/en/stable/build... 
-pip uninstall h5py
-HDF5_VERSION=[Desired version] pip install --no-binary=h5py h5py==3.1.0
